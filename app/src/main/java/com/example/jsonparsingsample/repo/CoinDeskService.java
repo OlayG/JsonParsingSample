@@ -2,6 +2,7 @@ package com.example.jsonparsingsample.repo;
 
 import com.example.jsonparsingsample.model.CoinDeskResponse;
 
+import io.reactivex.Observable;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -55,4 +56,7 @@ public interface CoinDeskService {
 
     @GET("{ticker}/currentprice.json")
     Call<CoinDeskResponse> getCurrentPrice(@Path("ticker") String ticker);
+
+    @GET("{ticker}/currentprice.json")
+    Observable<CoinDeskResponse> getCurrentPriceRx(@Path("ticker") String ticker);
 }
